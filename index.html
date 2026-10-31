@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neros Studio Barbearia | Joinville - SC</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --primary-gold-hover: #f3e5ab;
+            --bg-dark: #0f0f0f;
+            --bg-card: #181818;
+            --bg-card-hover: #222222;
+            --text-light: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(15, 15, 15, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .btn-header {
+            background: linear-gradient(135deg, var(--primary-gold), #aa820a);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            padding: 8px 16px;
+            border-radius: 50px;
+            border: 1px solid var(--primary-gold);
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .hero-badge i {
+            color: #ffc107;
+        }
+
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-gold), #aa820a);
+            color: #000;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Features/Stats Bar */
+        .features-bar {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 30px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Sections General */
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+
+        .section-title div {
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-gold);
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-price {
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .service-time {
+            font-size: 0.85rem;
+            color: var(--primary-gold);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Testimonials */
+        .reviews-container {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .google-score {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .score-num {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+        }
+
+        .review-card {
+            background-color: rgba(255,255,255,0.03);
+            padding: 25px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-gold);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Location & Contact */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-top: 5px;
+        }
+
+        .info-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            color: var(--text-muted);
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #080808;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-scissors"></i> NEROS STUDIO
+            </a>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#avaliacoes">Avaliações</a></li>
+                <li><a href="#contato">Localização</a></li>
+            </ul>
+            <a href="https://app.faroldabarbearia.com.br/agendar/agendaaqui" target="_blank" class="btn-header">Agendar Horário</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-star"></i>
+                <span>5.0 de Avaliação no Google Maps</span>
+            </div>
+            <h1>Neros Studio Barbearia</h1>
+            <p>Estilo, precisão e atendimento exclusivo no bairro América em Joinville - SC.</p>
+            <a href="https://app.faroldabarbearia.com.br/agendar/agendaaqui" target="_blank" class="btn-main">
+                <i class="fa-solid fa-calendar-check"></i> Agendar Online Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Bar -->
+    <div class="features-bar">
+        <div class="container features-grid">
+            <div class="feature-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>Bairro América</h4>
+                <p>Localização privilegiada</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-clock"></i>
+                <h4>Aberto até as 19:00</h4>
+                <p>Segunda a Sábado</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-award"></i>
+                <h4>Nota Máxima</h4>
+                <p>Qualidade comprovada</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="sobre">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre o Studio</h2>
+                <div></div>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px;">
+                    O <strong>Neros Studio Barbearia</strong> foi concebido para entregar mais do que apenas um corte de cabelo ou barba. Oferecemos uma experiência completa de cuidado masculino com alto padrão de atendimento e ambiente climatizado no coração do bairro América em Joinville.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" style="background-color: #121212;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <div></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Corte Degradê / Social <span class="service-price">R$ 50</span></h3>
+                    <p>Corte moderno ou clássico com acabamento perfeito, lavagem e finalização com pomada premium.</p>
+                    <div class="service-time"><i class="fa-regular fa-clock"></i> 45 min</div>
+                </div>
+                <div class="service-card">
+                    <h3>Barba Terapia <span class="service-price">R$ 45</span></h3>
+                    <p>Modelagem de barba com toalha quente, óleos essenciais, hidratação e pós-barba acalmante.</p>
+                    <div class="service-time"><i class="fa-regular fa-clock"></i> 35 min</div>
+                </div>
+                <div class="service-card">
+                    <h3>Combo Neros (Corte + Barba) <span class="service-price">R$ 85</span></h3>
+                    <p>A experiência completa. Corte completo + barba terapia com valor promocional.</p>
+                    <div class="service-time"><i class="fa-regular fa-clock"></i> 1h 15min</div>
+                </div>
+                <div class="service-card">
+                    <h3>Pigmentação de Barba/Cabelo <span class="service-price">R$ 35</span></h3>
+                    <p>Disfarce de fios brancos e correção de falhas para destacar o alinhamento da barba ou corte.</p>
+                    <div class="service-time"><i class="fa-regular fa-clock"></i> 25 min</div>
+                </div>
+                <div class="service-card">
+                    <h3>Pézinho e Acabamento <span class="service-price">R$ 20</span></h3>
+                    <p>Manutenção rápida do contorno do cabelo e sobrancelha com navalha alinhada.</p>
+                    <div class="service-time"><i class="fa-regular fa-clock"></i> 20 min</div>
+                </div>
+                <div class="service-card">
+                    <h3>Dia do Noivo VIP <span class="service-price">Consultar</span></h3>
+                    <p>Atendimento exclusivo com bebidas premium, cuidados completos e preparação para eventos especiais.</p>
+                    <div class="service-time"><i class="fa-regular fa-clock"></i> Sob consulta</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="avaliacoes">
+        <div class="container">
+            <div class="section-title">
+                <h2>O que dizem nossos clientes</h2>
+                <div></div>
+            </div>
+            <div class="reviews-container">
+                <div class="google-score">
+                    <span class="score-num">5.0</span>
+                    <div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span style="font-size: 0.9rem; color: var(--text-muted);">Avaliação oficial no Google Maps</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="avatar">RG</div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Reyber Gonzalez</h4>
+                            <div style="color: #ffc107; font-size: 0.8rem;">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-style: italic; color: var(--text-muted);">"Excelente atendimento e profissionalismo no corte. Ambiente super agradável e bem localizado em Joinville!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="contato" style="background-color: #121212;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Onde Estamos</h2>
+                <div></div>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>R. Orestes Guimarães, 720 - América<br>Joinville - SC, 89204-060</p>
+                            <span style="font-size: 0.8rem; color: var(--primary-gold);">Plus Code: P554+G8 América, Joinville</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <h4>Telefone / WhatsApp</h4>
+                            <p>(47) 98914-9089</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda a Sábado: Aberto · Fecha às 19:00</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=R.+Orestes+Guimar%C3%A3es,+720+-+Am%C3%A9rica,+Joinville+-+SC,+89204-060" target="_blank" class="btn-main" style="text-align: center; justify-content: center; margin-top: 10px;">
+                        <i class="fa-solid fa-route"></i> Abrir Rotas no Google Maps
+                    </a>
+                </div>
+                <div>
+                    <iframe class="map-frame" src="https://maps.google.com/maps?q=R.+Orestes+Guimar%C3%A3es,+720+-+Am%C3%A9rica,+Joinville+-+SC,+89204-060&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Neros Studio Barbearia. Todos os direitos reservados.</p>
+            <p style="margin-top: 5px; font-size: 0.8rem;">R. Orestes Guimarães, 720 - América, Joinville - SC</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5547989149089?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20d%C3%BAvidas." class="whatsapp-float" target="_blank" aria-label="Contato via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
