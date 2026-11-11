@@ -2,7 +2,7 @@
     --gold: #d4af37;
     --bg-dark: #0a0a0a;
     --bg-card: #141414;
-    --bg-logo: #ffffff;
+    --bg-logo: #ffffff; /* Fundo branco puro para destacar perfeitamente a logo preta */
     --text-light: #f5f5f5;
     --text-muted: #a0a0a0;
     --border: #2a2a2a;
@@ -55,7 +55,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
 }
 
@@ -131,13 +131,17 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     padding: 10px 20px;
     border-radius: 50px;
-    border: 1px solid var(--gold);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     margin-bottom: 30px;
     font-size: 0.9rem;
     font-weight: 600;
+    color: var(--text-light);
+}
+
+.hero-badge i {
     color: var(--gold);
 }
 
@@ -164,7 +168,7 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background: linear-gradient(135deg, var(--gold), #aa820a);
+    background-color: #f5f5f5;
     color: #000;
     padding: 18px 35px;
     font-size: 1.1rem;
@@ -177,8 +181,9 @@ header {
 }
 
 .btn-main:hover {
+    background-color: #ffffff;
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
 }
 
 /* Barra de Destaques */
@@ -290,7 +295,7 @@ section {
 }
 
 .service-card:hover {
-    border-color: rgba(212, 175, 55, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-5px);
 }
 
@@ -309,7 +314,7 @@ section {
 }
 
 .service-price {
-    color: var(--gold);
+    color: var(--text-light);
     font-size: 1.6rem;
     font-weight: 800;
     white-space: nowrap;
@@ -345,11 +350,16 @@ section {
 }
 
 .btn-service {
-    color: var(--gold);
+    color: var(--text-light);
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
     text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.btn-service:hover {
+    color: var(--gold);
 }
 
 /* Avaliações */
@@ -374,7 +384,7 @@ section {
 .score-num {
     font-size: 4rem;
     font-weight: 800;
-    color: var(--gold);
+    color: var(--text-light);
     line-height: 1;
 }
 
@@ -405,7 +415,7 @@ section {
     background-color: rgba(255, 255, 255, 0.02);
     padding: 30px;
     border-radius: 6px;
-    border-left: 4px solid var(--gold);
+    border-left: 4px solid var(--text-light);
 }
 
 .review-header {
@@ -420,7 +430,7 @@ section {
     height: 55px;
     border-radius: 50%;
     background-color: #2a2a2a;
-    color: var(--gold);
+    color: var(--text-light);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -472,7 +482,7 @@ section {
 .info-icon {
     font-size: 1.5rem;
     color: var(--gold);
-    background-color: rgba(212, 175, 55, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
     width: 50px;
     height: 50px;
     border-radius: 8px;
@@ -497,6 +507,8 @@ section {
     margin-top: 15px;
     width: 100%;
     justify-content: center;
+    background-color: var(--text-light);
+    color: #000;
 }
 
 .map-container {
@@ -554,6 +566,9 @@ footer {
 footer .logo-wrapper {
     display: inline-flex;
     margin: 0 auto 20px;
+    background-color: var(--bg-logo);
+    padding: 6px 14px;
+    border-radius: 6px;
 }
 
 footer .logo-img {
@@ -584,7 +599,7 @@ footer p {
         border-bottom: 1px solid var(--border);
     }
     .nav-links.active { display: flex; }
-    .mobile-menu-btn { display: block; }
+    .mobile-menu_btn, .mobile-menu-btn { display: block; }
     .hero-content h1 { font-size: 2.3rem; }
     .services-grid { grid-template-columns: 1fr; }
     .reviews-container { padding: 30px 20px; }
